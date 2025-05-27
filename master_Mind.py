@@ -1,9 +1,9 @@
 #!/bin/python3
 # MasterMind
 # by ICTROCN
-# v1.01
-# 15-8-2024
-# Last mod by DevJan : added loop for replay
+# v1.02
+# 05-27-2025
+# Last mod by Bryan : added admin mode and cheat code
 print("MasterMind")
 
 import random
@@ -44,6 +44,9 @@ def play_Mastermind():
         while not valid_Guess:
             guess = input(f"Attempt {attempt}: ").strip()
             if guess == "Admin" or guess == "admin":
+                if is_admin:
+                    print("You are already in admin mode.")
+                    continue
                 code_guess = input("What is the admin password? ")
                 if code_guess == ''.join(admin_code):
                     is_admin = True
