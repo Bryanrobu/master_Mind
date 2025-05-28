@@ -12,7 +12,7 @@ word_list = [
     "hart", "spin", "mooi", "wind", "zand", "klok", "vuur"
 ]
 
-def generate_Code(length=4, digits=6):
+def generate_Code():
     return list(random.choice(word_list))
 
 def get_Feedback(secret, guess):
