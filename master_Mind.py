@@ -8,8 +8,20 @@ print("MasterMind")
 import random
 
 word_list = [
-    "lief", "boom", "wolf", "held", "maan", "goud", "rood", "zout",
-    "hart", "spin", "mooi", "wind", "zand", "klok", "vuur"
+    "lief", "boom", "wolf", "held", "maan", "goud", "rood", 
+    "hart", "spin", "mooi", "wind", "zand", "klok", "vuur",
+    "noot", "geel", "leef", "meer", "duik", "snee", "kruk",
+    "hoop", "tent", "voet", "koud", "warm", "wand", "deur", 
+    "doek", "veer", "blad", "gras", "klop", "blik", "keer",
+    "hand", "wang", "neus", "tand", "teen", "been", "klem", 
+    "leeg", "volk", "reis", "zang", "lijn", "muur", "vlag",
+    "ring", "hond", "kooi", "bank", "kast", "kist", "lamp",
+    "zeep", "kous", "balg", "hark", "zaag", "gids", "druk",
+    "film", "boek", "spel", "dans", "lied", "vlas", "leus",
+    "buis", "trap", "gang", "lift", "rots", "grot", "dijk",
+    "beek", "rond", "vlak", "vlek", "klas", "veer", "rook",
+    "raam", "boog", "zeil", "toet", "bout", "deur", "nest",
+    "haak", "peer", "baas", "touw", "been", "pijl", "zout",
 ]
 
 def generate_Code():
