@@ -2,7 +2,8 @@
 # MasterMind
 # by ICTROCN
 # v1.02
-# 05-27-2025
+# 06-02-2025
+# Last mod by Bryan : added word list and words instead of numbers
 print("MasterMind")
 
 import random
