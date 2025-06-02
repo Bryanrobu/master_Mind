@@ -2,14 +2,31 @@
 # MasterMind
 # by ICTROCN
 # v1.02
-# 05-27-2025
-# Last mod by Bryan : added admin mode and cheat code
+# 06-02-2025
+# Last mod by Bryan : added word list and words instead of numbers
 print("MasterMind")
 
 import random
 
-def generate_Code(length=4, digits=6):
-    return [str(random.randint(1, digits)) for _ in range(length)]
+word_list = [
+    "lief", "boom", "wolf", "held", "maan", "goud", "rood", 
+    "hart", "spin", "mooi", "wind", "zand", "klok", "vuur",
+    "noot", "geel", "leef", "meer", "duik", "snee", "kruk",
+    "hoop", "tent", "voet", "koud", "warm", "wand", "deur", 
+    "doek", "veer", "blad", "gras", "klop", "blik", "keer",
+    "hand", "wang", "neus", "tand", "teen", "been", "klem", 
+    "leeg", "volk", "reis", "zang", "lijn", "muur", "vlag",
+    "ring", "hond", "kooi", "bank", "kast", "kist", "lamp",
+    "zeep", "kous", "balg", "hark", "zaag", "gids", "druk",
+    "film", "boek", "spel", "dans", "lied", "vlas", "leus",
+    "buis", "trap", "gang", "lift", "rots", "grot", "dijk",
+    "beek", "rond", "vlak", "vlek", "klas", "veer", "rook",
+    "raam", "boog", "zeil", "toet", "bout", "deur", "nest",
+    "haak", "peer", "baas", "touw", "been", "pijl", "zout",
+]
+
+def generate_Code():
+    return list(random.choice(word_list))
 
 def get_Feedback(secret, guess):
     black_Pegs = sum(s == g for s, g in zip(secret, guess))
@@ -32,7 +49,7 @@ def show_Secret(mystery):
 
 def play_Mastermind():
     print("Welcome to Mastermind!")
-    print("Guess the 4-digit code. Each digit is from 1 to 6. You have 10 attempts.")
+    print("Guess the 4-letter word. You have 10 attempts.")
     secret_Code = generate_Code()
     attempts = 10
     admin_code = "Admin123"
@@ -42,13 +59,13 @@ def play_Mastermind():
         guess = ""
         valid_Guess = False
         while not valid_Guess:
-            guess = input(f"Attempt {attempt}: ").strip()
+            guess = input(f"Attempt {attempt}: ").strip().lower()
             if guess == "Admin" or guess == "admin":
                 if is_admin:
                     print("You are already in admin mode.")
                     continue
                 code_guess = input("What is the admin password? ")
-                if code_guess == ''.join(admin_code):
+                if code_guess == admin_code:
                     is_admin = True
                     print("Admin mode activated.")
                     continue
@@ -61,9 +78,9 @@ def play_Mastermind():
                 show_Secret(secret_Code)
                 continue
                     
-            valid_Guess = len(guess) == 4 and all(c in "123456" for c in guess)
+            valid_Guess = len(guess) == 4 and guess.isalpha()
             if not valid_Guess:
-                print("Invalid input. Enter 4 digits, each from 1 to 6.")
+                print("Invalid input. Enter a valid 4 letter word.")
 
         black, white = get_Feedback(secret_Code, guess)
         print(f"Black pegs (correct position): {black}, White pegs (wrong position): {white}")
