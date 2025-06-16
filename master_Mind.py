@@ -26,7 +26,7 @@ word_list = [
 ]
 
 def generate_Code():
-    return list(random.choice(word_list))
+    return list (random.choice(word_list))
 
 def get_Feedback(secret, guess):
     black_Pegs = sum(s == g for s, g in zip(secret, guess))
